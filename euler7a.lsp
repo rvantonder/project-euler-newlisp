@@ -1,0 +1,15 @@
+(define (sieve n)
+	(set 'l (sequence 2 n))
+	(set 'result '())
+	(while (set 'f (pop l))
+		;(println "factor: " temp)
+		(push f result)
+		(set 'np (map (fn (x) (* x (first result))) (sequence 2 (+ 1 (div n f)))))
+		;(println "l: " l " np: " np " difference: " (difference l np))
+		(set 'l (difference l np))))
+
+
+(sieve 130000)
+(println (length result))
+(println ((reverse result) 10000))
+(exit)
